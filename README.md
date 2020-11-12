@@ -1320,7 +1320,45 @@ SELECT COUNT(DISTINCT column_name) FROM table_name;
 SELECT COUNT(DISTINCT count) FROM access_log;
 ```
 
+## MIN()
 
+
+> 返回指定列的最小值。
+
+```sql
+SELECT MIN(column_name) FROM table_name;
+```
+
+```sql
+mysql> SELECT * FROM Websites;
++----+--------------+-------------------------+-------+---------+
+| id | name         | url                     | alexa | country |
++----+--------------+-------------------------+-------+---------+
+|  1 | Google       | https://www.google.cm/  |     1 | USA     |
+|  2 | 淘宝         | https://www.taobao.com/ |    13 | CN      |
+|  3 | 菜鸟教程     | http://www.runoob.com/  |  5000 | USA     |
+|  4 | 微博         | http://weibo.com/       |    20 | IND     |
+| 10 | QQ APP       |                         |     0 | CN      |
++----+--------------+-------------------------+-------+---------+
+
+mysql> SELECT MIN(alexa) AS min_alexa FROM Websites;
++-----------+
+| min_alexa |
++-----------+
+|         0 |
++-----------+
+```
+
+## GROUP BY
+
+> `GROUP BY` 语句可结合一些聚合函数来使用，根据一个或多个列对结果集进行分组。
+
+```sql
+SELECT column_name, aggregate_function(column_name)
+FROM table_name
+WHERE column_name operator value
+GROUP BY column_name;
+```
 
 
 
